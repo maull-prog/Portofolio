@@ -1,0 +1,75 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Kelola Pengalaman – Admin Portfolio{% endblock %}
+{% block page_title %}Kelola Pengalaman{% endblock %}
+{% block page_desc %}Tambah, edit, atau hapus riwayat pengalaman kerja{% endblock %}
+
+{% block content %}
+<!-- Form Card -->
+<div class="card" style="margin-bottom:24px;">
+    <div class="card-header">
+        <span class="card-title">
+            <i class="fas fa-plus-circle"></i>
+            <span id="formTitle">Tambah Pengalaman Baru</span>
+        </span>
+        <button type="button" class="btn btn-secondary btn-sm" id="resetBtn" style="display:none;">
+            <i class="fas fa-times"></i> Batal Edit
+        </button>
+    </div>
+    <form id="expForm">
+        <input type="hidden" id="exp_id">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="posisi">Posisi / Jabatan</label>
+                <input type="text" id="posisi" placeholder="Contoh: Full Stack Developer" required>
+            </div>
+            <div class="form-group">
+                <label for="perusahaan">Perusahaan / Instansi</label>
+                <input type="text" id="perusahaan" placeholder="Contoh: PT Digital Nusantara" required>
+            </div>
+            <div class="form-group span-2">
+                <label for="durasi">Durasi</label>
+                <input type="text" id="durasi" placeholder="Contoh: Jan 2022 – Des 2023">
+            </div>
+            <div class="form-group span-2">
+                <label for="deskripsi">Deskripsi Pekerjaan</label>
+                <textarea id="deskripsi" rows="4" placeholder="Deskripsikan tanggung jawab dan pencapaian Anda..."></textarea>
+            </div>
+        </div>
+        <div class="form-actions" style="margin-top:16px;">
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i> Simpan Pengalaman
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- Table Card -->
+<div class="card">
+    <div class="card-header">
+        <span class="card-title">
+            <i class="fas fa-list"></i>
+            Daftar Pengalaman
+        </span>
+        <span class="badge badge-purple" id="expCount">0 Pengalaman</span>
+    </div>
+    <div class="table-wrapper">
+        <table id="expTable">
+            <thead>
+                <tr>
+                    <th style="width:60px;">#</th>
+                    <th>Posisi</th>
+                    <th>Perusahaan</th>
+                    <th>Durasi</th>
+                    <th style="width:140px;">Aksi</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="/static/admin/js/experience.js"></script>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Dashboard – Admin Portfolio{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+{% block page_desc %}Overview portofolio Anda{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/admin/css/dashboard.css">
+{% endblock %}
+
+{% block content %}
+<!-- Welcome Banner -->
+<div class="welcome-banner">
+    <div class="welcome-text">
+        <h2>Selamat Datang, <span class="gradient-text">Admin! 👋</span></h2>
+        <p>Kelola semua konten portofolio Anda dengan mudah dari sini.</p>
+    </div>
+    <div class="welcome-actions">
+        <a href="/" target="_blank" class="btn btn-secondary">
+            <i class="fas fa-eye"></i> Preview
+        </a>
+    </div>
+</div>
+
+<!-- Stats Grid -->
+<div class="stats-grid" id="statsGrid">
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-user-circle"></i></div>
+        <div class="stat-content">
+            <h3>1</h3>
+            <p>Data Profil</p>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-code"></i></div>
+        <div class="stat-content">
+            <h3 id="statSkills">–</h3>
+            <p>Total Skills</p>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
+        <div class="stat-content">
+            <h3 id="statExp">–</h3>
+            <p>Pengalaman</p>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-laptop-code"></i></div>
+        <div class="stat-content">
+            <h3 id="statProjects">–</h3>
+            <p>Total Proyek</p>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="card">
+    <div class="card-header">
+        <span class="card-title">
+            <i class="fas fa-bolt"></i>
+            Quick Actions
+        </span>
+    </div>
+    <div class="quick-actions-grid">
+        <a href="/admin/profiles" class="quick-action-card">
+            <div class="quick-action-icon"><i class="fas fa-user-circle"></i></div>
+            <div class="quick-action-text">
+                <h4>Kelola Profil</h4>
+                <p>Update info & foto profil</p>
+            </div>
+            <i class="fas fa-arrow-right quick-action-arrow"></i>
+        </a>
+        <a href="/admin/skills" class="quick-action-card">
+            <div class="quick-action-icon"><i class="fas fa-code"></i></div>
+            <div class="quick-action-text">
+                <h4>Kelola Skills</h4>
+                <p>Tambah/edit teknologi</p>
+            </div>
+            <i class="fas fa-arrow-right quick-action-arrow"></i>
+        </a>
+        <a href="/admin/experiences" class="quick-action-card">
+            <div class="quick-action-icon"><i class="fas fa-briefcase"></i></div>
+            <div class="quick-action-text">
+                <h4>Kelola Pengalaman</h4>
+                <p>Update riwayat kerja</p>
+            </div>
+            <i class="fas fa-arrow-right quick-action-arrow"></i>
+        </a>
+        <a href="/admin/projects" class="quick-action-card">
+            <div class="quick-action-icon"><i class="fas fa-laptop-code"></i></div>
+            <div class="quick-action-text">
+                <h4>Kelola Proyek</h4>
+                <p>Tambah/edit portofolio</p>
+            </div>
+            <i class="fas fa-arrow-right quick-action-arrow"></i>
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="/static/admin/js/dashboard.js"></script>
+{% endblock %}

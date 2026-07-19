@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin – Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/admin/css/login.css">
+</head>
+<body>
+    <div class="login-wrapper">
+        <!-- Brand -->
+        <div class="login-brand">
+            <div class="brand-icon">PM</div>
+            <h1>Portfolio <span style="background: linear-gradient(135deg,#a78bfa,#c084fc); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Admin</span></h1>
+            <p>Masuk ke panel manajemen portofolio</p>
+        </div>
+
+        <!-- Form -->
+        <div class="login-container">
+            <h2>Selamat Datang Kembali 👋</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user icon-left"></i>
+                        <input type="text" id="username" name="username" placeholder="Masukkan username" required autocomplete="username">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock icon-left"></i>
+                        <input type="password" id="password" name="password" placeholder="Masukkan password" required autocomplete="current-password">
+                    </div>
+                </div>
+                <button type="submit" class="login-btn" id="loginBtn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Masuk
+                </button>
+                <p id="error-msg"></p>
+            </form>
+        </div>
+
+        <div class="login-footer">
+            © 2026 Pradika Maula Arrozaq. All rights reserved.
+        </div>
+    </div>
+
+    <script src="/static/admin/js/login.js"></script>
+</body>
+</html>

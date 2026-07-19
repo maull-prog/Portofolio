@@ -1,0 +1,67 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Kelola Skills – Admin Portfolio{% endblock %}
+{% block page_title %}Kelola Skills{% endblock %}
+{% block page_desc %}Tambah, edit, atau hapus keahlian teknologi{% endblock %}
+
+{% block content %}
+<!-- Form Card -->
+<div class="card" style="margin-bottom:24px;">
+    <div class="card-header">
+        <span class="card-title">
+            <i class="fas fa-plus-circle"></i>
+            <span id="formTitle">Tambah Skill Baru</span>
+        </span>
+        <button type="button" class="btn btn-secondary btn-sm" id="resetBtn" style="display:none;">
+            <i class="fas fa-times"></i> Batal Edit
+        </button>
+    </div>
+    <form id="skillForm">
+        <input type="hidden" id="skill_id">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="nama_skill">Nama Skill</label>
+                <input type="text" id="nama_skill" placeholder="Contoh: React.js" required>
+            </div>
+            <div class="form-group">
+                <label for="icon_class">Icon Class (Font Awesome)</label>
+                <input type="text" id="icon_class" placeholder="Contoh: fab fa-react">
+            </div>
+        </div>
+        <div class="form-actions" style="margin-top:16px;">
+            <button type="submit" class="btn btn-primary" id="btnSimpanSkill">
+                <i class="fas fa-save"></i> Simpan Skill
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- Table Card -->
+<div class="card">
+    <div class="card-header">
+        <span class="card-title">
+            <i class="fas fa-list"></i>
+            Daftar Skills
+        </span>
+        <span class="badge badge-purple" id="skillCount">0 Skills</span>
+    </div>
+    <div class="table-wrapper">
+        <table id="skillsTable">
+            <thead>
+                <tr>
+                    <th style="width:60px;">#</th>
+                    <th>Nama Skill</th>
+                    <th>Icon Class</th>
+                    <th>Preview</th>
+                    <th style="width:140px;">Aksi</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="/static/admin/js/skills.js"></script>
+{% endblock %}

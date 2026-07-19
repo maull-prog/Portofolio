@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pradika Maula Arrozaq - Frontend Developer</title>
+    <meta name="description" content="Portfolio Pradika Maula Arrozaq - Frontend Developer yang membangun pengalaman digital yang luar biasa.">
+    <link rel="stylesheet" href="/static/utama/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo gradient-text">Pradika.</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="hero-content">
+
+            <h1 class="hero-title">
+                Hai, Saya <br>
+                <span class="gradient-text">Pradika Maula Arrozaq</span>
+            </h1>
+            <h2 class="hero-subtitle">Frontend Developer</h2>
+            <p class="hero-desc">
+                I build exceptional digital experiences that are fast, accessible, and visually appealing. Let's create something amazing together.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-gradient">Hire Me</a>
+                <a href="#projects" class="btn btn-outline">View Work</a>
+            </div>
+            <div class="hero-social">
+                <span class="social-label">Follow Me</span>
+                <div class="social-divider"></div>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/pradikamaull" target="_blank" rel="noreferrer" class="social-link instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.link/t9vn8z" target="_blank" rel="noreferrer" class="social-link whatsapp" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@pradikamaul" target="_blank" rel="noreferrer" class="social-link tiktok" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noreferrer" class="social-link github" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image-wrapper">
+            <div class="hero-img-glow"></div>
+            <div class="hero-img-container">
+                {% if profile and profile.foto_url %}
+                    <img src="{{ profile.foto_url }}" alt="Pradika Maula Arrozaq" class="hero-img">
+                {% else %}
+                    <div class="hero-img-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About <span class="gradient-text">Me</span></h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Who am I?</h3>
+                    <p>
+                        I am an active student at UKSW, currently learning web development, system development, and data analysis.
+                    </p>
+                    <div class="about-info-grid">
+                        <div class="about-info-item">
+                            <span class="info-label">Email</span>
+                            <span class="info-value">{{ profile.email if profile and profile.email else 'pradikamaula01@gmail.com' }}</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">Phone</span>
+                            <span class="info-value">{{ profile.telepon if profile and profile.telepon else '+6281215623606' }}</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">Age</span>
+                            <span class="info-value">22</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">Experience</span>
+                            <span class="info-value">2 Years</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">Location</span>
+                            <span class="info-value">{{ profile.alamat if profile and profile.alamat else 'Indonesia' }}</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">Universitas</span>
+                            <span class="info-value">{{ profile.universitas if profile and profile.universitas else '-' }}</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">Prodi</span>
+                            <span class="info-value">{{ profile.prodi if profile and profile.prodi else '-' }}</span>
+                        </div>
+                        <div class="about-info-item">
+                            <span class="info-label">Semester</span>
+                            <span class="info-value">{{ profile.semester if profile and profile.semester else '-' }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image-wrapper">
+                    <div class="about-img-glow"></div>
+                    <div class="about-img-container">
+                        {% if profile and profile.foto_about_url %}
+                            <img src="{{ profile.foto_about_url }}" alt="About Pradika" class="about-img">
+                        {% else %}
+                            <div class="about-img-placeholder">
+                                <i class="fas fa-image"></i>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>My <span class="gradient-text">Skills</span></h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="skills-wrapper">
+                <!-- Tech Skills from DB -->
+                <div class="tech-skills">
+                    <h3>Technologies</h3>
+                    <div class="skills-grid">
+                        {% for skill in skills %}
+                        <div class="skill-card-tech">
+                            <div class="skill-icon-wrapper">
+                                <i class="{{ skill.icon_class if skill.icon_class else 'fa-solid fa-code' }}"></i>
+                            </div>
+                            <p>{{ skill.nama_skill }}</p>
+                        </div>
+                        {% else %}
+                        <!-- Default skills if DB is empty -->
+                        <div class="skill-card-tech"><div class="skill-icon-wrapper"><i class="fab fa-html5" style="color:#E34F26;"></i></div><p>HTML5</p></div>
+                        <div class="skill-card-tech"><div class="skill-icon-wrapper"><i class="fab fa-css3-alt" style="color:#1572B6;"></i></div><p>CSS3</p></div>
+                        <div class="skill-card-tech"><div class="skill-icon-wrapper"><i class="fab fa-js-square" style="color:#F7DF1E;"></i></div><p>JavaScript</p></div>
+                        <div class="skill-card-tech"><div class="skill-icon-wrapper"><i class="fab fa-github"></i></div><p>GitHub</p></div>
+                        <div class="skill-card-tech"><div class="skill-icon-wrapper"><i class="fas fa-database" style="color:#4479A1;"></i></div><p>SQL Database</p></div>
+                        <div class="skill-card-tech"><div class="skill-icon-wrapper"><i class="fab fa-python" style="color:#3776AB;"></i></div><p>Python</p></div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- Soft Skills -->
+                <div class="soft-skills">
+                    <h3>Soft Skills</h3>
+                    <div class="soft-skills-list">
+                        <div class="soft-skill-item">
+                            <div class="soft-skill-header"><span>Problem Solving</span><span class="gradient-text">95%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="--progress:95%;"></div></div>
+                        </div>
+                        <div class="soft-skill-item">
+                            <div class="soft-skill-header"><span>Communication</span><span class="gradient-text">90%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="--progress:90%;"></div></div>
+                        </div>
+                        <div class="soft-skill-item">
+                            <div class="soft-skill-header"><span>Teamwork</span><span class="gradient-text">85%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="--progress:85%;"></div></div>
+                        </div>
+                        <div class="soft-skill-item">
+                            <div class="soft-skill-header"><span>Creativity</span><span class="gradient-text">80%</span></div>
+                            <div class="skill-bar"><div class="skill-progress" style="--progress:80%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (Full Timeline) -->
+    <section id="experience" class="exp-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Work <span class="gradient-text">Experience</span></h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="timeline">
+                {% for exp in experiences %}
+                <div class="timeline-item">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>{{ exp.posisi }}</h3>
+                                <p class="timeline-company">{{ exp.perusahaan }}</p>
+                            </div>
+                            <span class="timeline-period">{{ exp.durasi }}</span>
+                        </div>
+                        <p class="timeline-desc">{{ exp.deskripsi }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>My <span class="gradient-text">Projects</span></h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="projects-grid">
+                {% for p in projects %}
+                <div class="project-card group">
+                    <div class="project-img-wrapper">
+                        {% if p.gambar_url %}
+                            <img src="{{ p.gambar_url }}" alt="{{ p.judul }}" class="project-img">
+                        {% else %}
+                            <div class="project-img-placeholder">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                        {% endif %}
+                        <div class="project-overlay">
+                            {% if p.link_project %}
+                            <a href="{{ p.link_project }}" target="_blank" rel="noreferrer" class="project-link-btn">
+                                <i class="fas fa-external-link-alt"></i> View Live
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>{{ p.judul }}</h3>
+                        <p>{{ p.deskripsi }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-glow"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In <span class="gradient-text">Touch</span></h2>
+                <div class="section-divider"></div>
+                <p class="contact-intro">Punya proyek atau ide menarik? Mari kita diskusikan bersama!</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>pradikamaula01@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+6281215623606</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="contact_name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="contact_email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="contact_message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-gradient btn-full" id="btnSubmit">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                    <p id="contactMsg"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 <span class="gradient-text">Pradika Maula Arrozaq</span>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/static/utama/js/script.js"></script>
+</body>
+</html>
